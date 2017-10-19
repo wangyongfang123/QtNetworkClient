@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/menu">
+        <file>Resources/Login.jpg</file>
+        <file>Resources/Register.jpg</file>
+        <file>Resources/default_user_image.jpg</file>
+    </qresource>
+</RCC>
