@@ -2,7 +2,7 @@
 
 #include <QDialog>
 #include "ui_userlogin.h"
-
+#include "command.h"
 class UserLogin : public QDialog
 {
 	Q_OBJECT

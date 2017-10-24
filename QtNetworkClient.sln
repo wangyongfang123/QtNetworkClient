@@ -4,6 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtNetworkClient", "QtNetworkClient\QtNetworkClient.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC49EE63-93B5-4B29-8FA4-B03322480C87} = {AC49EE63-93B5-4B29-8FA4-B03322480C87}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtNetworkServer", "QtNetworkServer\QtNetworkServer.vcxproj", "{1549E374-6CE5-4EF1-B142-465EA10CB1FA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC49EE63-93B5-4B29-8FA4-B03322480C87} = {AC49EE63-93B5-4B29-8FA4-B03322480C87}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QTNetworkPlatform", "QTNetworkPlatform\QTNetworkPlatform.vcxproj", "{AC49EE63-93B5-4B29-8FA4-B03322480C87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,14 @@ Global
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.Build.0 = Debug|x64
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.ActiveCfg = Release|x64
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.Build.0 = Release|x64
+		{1549E374-6CE5-4EF1-B142-465EA10CB1FA}.Debug|x64.ActiveCfg = Debug|x64
+		{1549E374-6CE5-4EF1-B142-465EA10CB1FA}.Debug|x64.Build.0 = Debug|x64
+		{1549E374-6CE5-4EF1-B142-465EA10CB1FA}.Release|x64.ActiveCfg = Release|x64
+		{1549E374-6CE5-4EF1-B142-465EA10CB1FA}.Release|x64.Build.0 = Release|x64
+		{AC49EE63-93B5-4B29-8FA4-B03322480C87}.Debug|x64.ActiveCfg = Debug|x64
+		{AC49EE63-93B5-4B29-8FA4-B03322480C87}.Debug|x64.Build.0 = Debug|x64
+		{AC49EE63-93B5-4B29-8FA4-B03322480C87}.Release|x64.ActiveCfg = Release|x64
+		{AC49EE63-93B5-4B29-8FA4-B03322480C87}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

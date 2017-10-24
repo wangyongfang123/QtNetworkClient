@@ -37,19 +37,19 @@ public:
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_4;
     QPushButton *pushButton_6;
-    QLineEdit *lineEdit_4;
+    QLineEdit *leName;
     QHBoxLayout *horizontalLayout_5;
     QPushButton *pushButton_8;
-    QLineEdit *lineEdit_5;
+    QLineEdit *lePassword1;
     QPushButton *pushButton_7;
-    QLineEdit *lineEdit_6;
+    QLineEdit *lePassword2;
     Image *m_lbImage;
     QVBoxLayout *verticalLayout_5;
     QGroupBox *groupBox;
-    QTextEdit *textEdit;
+    QTextEdit *leInformation;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton_2;
+    QPushButton *pbRegister;
     QPushButton *pushButton;
 
     void setupUi(QDialog *UserRegister)
@@ -84,10 +84,10 @@ public:
 
         horizontalLayout_4->addWidget(pushButton_6);
 
-        lineEdit_4 = new QLineEdit(UserRegister);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
+        leName = new QLineEdit(UserRegister);
+        leName->setObjectName(QStringLiteral("leName"));
 
-        horizontalLayout_4->addWidget(lineEdit_4);
+        horizontalLayout_4->addWidget(leName);
 
 
         verticalLayout_4->addLayout(horizontalLayout_4);
@@ -100,20 +100,20 @@ public:
 
         horizontalLayout_5->addWidget(pushButton_8);
 
-        lineEdit_5 = new QLineEdit(UserRegister);
-        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
+        lePassword1 = new QLineEdit(UserRegister);
+        lePassword1->setObjectName(QStringLiteral("lePassword1"));
 
-        horizontalLayout_5->addWidget(lineEdit_5);
+        horizontalLayout_5->addWidget(lePassword1);
 
         pushButton_7 = new QPushButton(UserRegister);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
 
         horizontalLayout_5->addWidget(pushButton_7);
 
-        lineEdit_6 = new QLineEdit(UserRegister);
-        lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
+        lePassword2 = new QLineEdit(UserRegister);
+        lePassword2->setObjectName(QStringLiteral("lePassword2"));
 
-        horizontalLayout_5->addWidget(lineEdit_6);
+        horizontalLayout_5->addWidget(lePassword2);
 
 
         verticalLayout_4->addLayout(horizontalLayout_5);
@@ -144,10 +144,10 @@ public:
 
         verticalLayout_5->addWidget(groupBox);
 
-        textEdit = new QTextEdit(UserRegister);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
+        leInformation = new QTextEdit(UserRegister);
+        leInformation->setObjectName(QStringLiteral("leInformation"));
 
-        verticalLayout_5->addWidget(textEdit);
+        verticalLayout_5->addWidget(leInformation);
 
 
         verticalLayout_3->addLayout(verticalLayout_5);
@@ -159,10 +159,10 @@ public:
 
         horizontalLayout_2->addItem(horizontalSpacer);
 
-        pushButton_2 = new QPushButton(UserRegister);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pbRegister = new QPushButton(UserRegister);
+        pbRegister->setObjectName(QStringLiteral("pbRegister"));
 
-        horizontalLayout_2->addWidget(pushButton_2);
+        horizontalLayout_2->addWidget(pbRegister);
 
         pushButton = new QPushButton(UserRegister);
         pushButton->setObjectName(QStringLiteral("pushButton"));
@@ -189,7 +189,7 @@ public:
         pushButton_7->setText(QApplication::translate("UserRegister", "repeat password", Q_NULLPTR));
         m_lbImage->setText(QApplication::translate("UserRegister", "TextLabel", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("UserRegister", "Person Information", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("UserRegister", "Register", Q_NULLPTR));
+        pbRegister->setText(QApplication::translate("UserRegister", "Register", Q_NULLPTR));
         pushButton->setText(QApplication::translate("UserRegister", "Cancel", Q_NULLPTR));
     } // retranslateUi
 

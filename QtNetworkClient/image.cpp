@@ -16,7 +16,11 @@ void Image::setImage(const QString & file)
 	QImageReader ir(file);
 	QPixmap image = QPixmap::fromImageReader(&ir);
 	this->setPixmap(image.scaled(this->size()));
-
+	m_file = file;
+}
+const QString & Image::getImage()const
+{
+	return m_file;
 }
 void Image::mousePressEvent(QMouseEvent *event)
 {

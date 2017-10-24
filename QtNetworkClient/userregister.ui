@@ -34,7 +34,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEdit_4"/>
+                <widget class="QLineEdit" name="leName"/>
                </item>
               </layout>
              </item>
@@ -48,7 +48,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEdit_5"/>
+                <widget class="QLineEdit" name="lePassword1"/>
                </item>
                <item>
                 <widget class="QPushButton" name="pushButton_7">
@@ -58,7 +58,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEdit_6"/>
+                <widget class="QLineEdit" name="lePassword2"/>
                </item>
               </layout>
              </item>
@@ -93,7 +93,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="textEdit"/>
+        <widget class="QTextEdit" name="leInformation"/>
        </item>
       </layout>
      </item>
@@ -113,7 +113,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="pbRegister">
          <property name="text">
           <string>Register</string>
          </property>
