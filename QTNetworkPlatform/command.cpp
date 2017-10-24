@@ -13,11 +13,15 @@ static string get_value(const string&data, const string&name)
 	string field_end = "</" + name + '>';
 	return get_value(data, field_start, field_end);
 }
+commendtype CommandRegister::type()const
+{
+	return CT_REGISTER;
+}
 const string CommandRegister::to_data() const
 {
 	string data = "";
 	data += "<type>";
-	uint32_t tmp = type;
+	uint32_t tmp = type();
 	data.append((const char*)&tmp, sizeof(uint32_t));
 	data += "</type>";
 
@@ -42,7 +46,7 @@ const string CommandRegister::to_data() const
 
 void CommandRegister::from_data(const string &data)
 {
-	type = (commendtype)*(uint32_t*)(get_value(data, "type").data());
+	//type = (commendtype)*(uint32_t*)(get_value(data, "type").data());
 	name = get_value(data, "name");
 	password = get_value(data, "password");
 	information = get_value(data, "information");
@@ -55,9 +59,32 @@ uint16_t CommandRegister::len()
 }
 static const char*package_start = "<start>";
 static const char*package_end = "<end>";
-const string Package::to_data() const
+
+const string Package::to_data(const Commend& cmd)
 {
 	string data;
+	data += package_start;
+	string tData;
+	tData = cmd.to_data();
+	uint16_t len = tData.length();
+	data.append((const char*)&len, sizeof(uint16_t));
+	data.append(tData);
+	data.append(package_end);
+	return data;
+	//return Package::to_data(*this->command);
+}
+
+Package::Package()
+{
+}
+
+Package::Package(Commend * cmd):command(cmd)
+{
+}
+
+const string Package::to_data() const
+{
+	/*string data;
 	data += package_start;
 	string tData;
 	tData = registr->to_data();
@@ -65,7 +92,8 @@ const string Package::to_data() const
 	data.append((const char*)&len, sizeof(uint16_t));
 	data.append(tData);
 	data.append(package_end);
-	return data;
+	return data;*/
+	return Package::to_data(*this->command);
 }
 
 void Package::from_data(const string &data)

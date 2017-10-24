@@ -69,7 +69,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\QTNetworkPlatform\command.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_image.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -131,7 +130,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\QTNetworkPlatform\command.h" />
     <ClInclude Include="GeneratedFiles\ui_qtnetworkclient.h" />
     <ClInclude Include="GeneratedFiles\ui_userlogin.h" />
     <ClInclude Include="GeneratedFiles\ui_userregister.h" />

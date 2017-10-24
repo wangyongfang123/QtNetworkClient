@@ -9,6 +9,7 @@ enum commendtype
 {
 	CMD_REGISTR,
 	CT_MESSAGE,
+	CT_REGISTER,
 	CMD_END
 };
 struct IS
@@ -18,7 +19,7 @@ struct IS
 };
 struct Commend :public IS
 {
-	commendtype type;
+	virtual commendtype type() const=0;
 	virtual uint16_t len() = 0;
 
 };
@@ -29,7 +30,8 @@ struct QTNETWORKPLATFORM_EXPORT CommandRegister :public Commend
 	string password;
 	string information;
 	string img;
-
+	commendtype type() const;
+	//CommandRegister();
 	// Inherited via IS
 	virtual const string to_data() const override;
 	virtual void from_data(const string &) override;
@@ -49,12 +51,14 @@ struct Message :public Commend
 struct QTNETWORKPLATFORM_EXPORT Package :public Commend
 {
 	CommandRegister *registr;
-	Commend *message;
+	Commend *command;
+	Package();
+	Package(Commend * cmd);
 
 	// Inherited via IS
 	virtual const string to_data() const override;
 	virtual void from_data(const string &) override;
-
+	static const string to_data(const Commend&);
 	// Inherited via Commend
 	virtual uint16_t len() override;
 
