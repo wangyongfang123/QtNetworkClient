@@ -1,11 +1,13 @@
 #include "command.h"
 #include<cassert>
+typedef uint32_t LenType;
+typedef uint32_t EnumType;
 static string get_value(const string&data, const string&field_name, const string&end_name)
 {
 	size_t start = data.find(field_name) + field_name.length();
 	size_t end = data.find(end_name);
-	string name = data.substr(start, end - start);
-	return name;
+	string ret = data.substr(start, end - start);
+	return ret;
 }
 static string get_value(const string&data, const string&name)
 {
@@ -22,7 +24,7 @@ const string CommandRegister::to_data() const
 	string data = "";
 	data += "<type>";
 	uint32_t tmp = type();
-	data.append((const char*)&tmp, sizeof(uint32_t));
+	data.append((const char*)&tmp, sizeof(EnumType));
 	data += "</type>";
 
 	data += "<name>";
@@ -52,7 +54,7 @@ void CommandRegister::from_data(const string &data)
 	information = get_value(data, "information");
 	img = get_value(data, "img");
 }
-uint16_t CommandRegister::len()
+int CommandRegister::length()const
 {
 	assert(0);
 	return uint16_t();
@@ -71,35 +73,46 @@ const string Package::to_data(const Commend& cmd)
 	data.append(tData);
 	data.append(package_end);
 	return data;
-	//return Package::to_data(*this->command);
 }
 
-Package::Package()
+Package::Package():command(0)
 {
 }
 
 Package::Package(Commend * cmd):command(cmd)
 {
 }
-
+Package::~Package()
+{
+	if (command != 0)
+	{
+		delete command;
+	}
+}
 const string Package::to_data() const
 {
-	/*string data;
-	data += package_start;
-	string tData;
-	tData = registr->to_data();
-	uint16_t len = tData.length();
-	data.append((const char*)&len, sizeof(uint16_t));
-	data.append(tData);
-	data.append(package_end);
-	return data;*/
+	
 	return Package::to_data(*this->command);
 }
+int Package::data_len() const
+{
+	assert(command != 0);
+	if (command == 0)
+	{
+		return -1;
+	}
+	return strlen(package_start)+sizeof(LenType)+command->length()+strlen(package_end);
 
+}
+const Commend* Package::getCmd()const
+{
+	return command;
+}
 void Package::from_data(const string &data)
 {
 	size_t start = data.find(package_start);
-	if (start == string::npos)
+	size_t end_index = data.find(package_end);
+	if (start == string::npos|| end_index==string::npos)
 	{
 		return;
 	}
@@ -133,13 +146,6 @@ void Package::from_data(const string &data)
 	//}
 }
 
-uint16_t Package::len()
-{
-	assert(0);
-	return uint16_t();
-}
-
-
 const string Message::to_data() const
 {
 
@@ -154,7 +160,7 @@ void Message::from_data(const string &)
 
 }
 
-uint16_t Message::len()
+int Message::length() const
 {
 	assert(0);
 	return uint16_t();

@@ -2,6 +2,7 @@
 #include <list>
 #include <map>
 #include <string>
+#include <QtSql>
 #include <QtWidgets/QMainWindow>
 #include "ui_qtnetworkserver.h"
 
@@ -22,6 +23,7 @@ private slots:
 private:
 	Ui::QtNetworkServerClass ui;
 	QTcpServer* m_tcpServer;
+	QSqlDatabase *database;
 	std::list<QTcpSocket*> m_clients;
 	std::map<QTcpSocket*, std::string*> m_clientBuffs;
 };
